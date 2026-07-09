@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stackly | Premium Baby Care Store</title>
+    <meta name="description" content="Stackly Baby Care Store - Premium products for your little ones.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .hero-section {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, var(--light), #FFE4E1);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-text h1 { color: var(--dark); margin-bottom: 1.5rem; }
+        .hero-text h1 span { color: var(--primary); }
+        .hero-text p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 500px; }
+        .hero-img img { border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); animation: float 6s ease-in-out infinite; }
+        
+        .features { padding: 4rem 0; background: var(--white); }
+        .feature-box { text-align: center; padding: 2rem; border-radius: var(--radius); background: var(--light); transition: var(--transition); }
+        .feature-box:hover { transform: translateY(-5px); box-shadow: var(--shadow); background: var(--white); }
+        .feature-icon { font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem; }
+        
+        .about-snippet { padding: 5rem 0; background: var(--light); }
+        .about-img img { border-radius: var(--radius); box-shadow: var(--shadow); }
+        
+        .categories { padding: 5rem 0; background: var(--white); }
+        .cat-card { text-align: center; padding: 2rem; background: var(--light); border-radius: 50%; width: 200px; height: 200px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: var(--transition); cursor: pointer; }
+        .cat-card:hover { background: var(--primary); color: var(--white); transform: scale(1.05); }
+        .cat-card i { font-size: 3rem; margin-bottom: 0.5rem; }
+        
+        .products { padding: 5rem 0; background: var(--light); }
+        .product-card { background: var(--white); padding: 1.5rem; border-radius: var(--radius); text-align: center; transition: var(--transition); box-shadow: var(--shadow); }
+        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-hover); }
+        .product-card .price { color: var(--primary); font-weight: 700; font-size: 1.25rem; margin: 1rem 0; }
+        .product-card img { height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1rem; background: var(--gray-light); width: 100%; }
+        
+        .testimonials { padding: 5rem 0; background: linear-gradient(135deg, var(--secondary), #A1C4FD); color: var(--white); text-align: center; }
+        .testimonials h2 { color: var(--white); }
+        .testimonial-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 2rem; border-radius: var(--radius); margin-top: 2rem; }
+        .testimonial-card p { color: var(--white); font-style: italic; }
+        
+        .blog-snippet { padding: 5rem 0; background: var(--white); }
+        .blog-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .blog-content { padding: 1.5rem; }
+        .blog-card img { width: 100%; height: 200px; object-fit: cover; background: var(--gray-light); }
+        
+        .newsletter { padding: 5rem 0; background: var(--light); text-align: center; }
+        .newsletter-form { max-width: 500px; margin: 2rem auto 0; display: flex; gap: 1rem; }
+        .newsletter-form input { flex: 1; padding: 1rem; border-radius: 30px; border: 1px solid var(--gray-light); }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.webp" alt="Stackly Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.5rem; margin-right: 0.5rem;">Login</a><a href="register.html" class="btn btn-primary" style="color: white; padding: 0.5rem 1.5rem;">Register</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="hero-section">
+        <div class="container grid-2 animate-fade">
+            <div class="hero-text">
+                <h1>Gentle Care for <span>Little Ones</span></h1>
+                <p>Discover our premium collection of baby products, carefully selected for comfort, safety, and joy.</p>
+                <a href="404.html" class="btn btn-primary">Shop Now <i class="bi bi-arrow-right ms-2"></i></a>
+                <a href="404.html" class="btn btn-outline" style="margin-left: 1rem;">Learn More</a>
+            </div>
+            <div class="hero-img">
+                <img src="assets/images/hero.webp" alt="Baby Care Hero">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Features -->
+    <section class="features">
+        <div class="container grid-4 reveal">
+            <div class="feature-box reveal-scale">
+                <i class="bi bi-truck feature-icon"></i>
+                <h3>Free Shipping</h3>
+                <p>On orders over $50</p>
+            </div>
+            <div class="feature-box">
+                <i class="bi bi-shield-check feature-icon"></i>
+                <h3>100% Safe</h3>
+                <p>Tested & certified</p>
+            </div>
+            <div class="feature-box">
+                <i class="bi bi-arrow-return-left feature-icon"></i>
+                <h3>Easy Returns</h3>
+                <p>30-day return policy</p>
+            </div>
+            <div class="feature-box">
+                <i class="bi bi-headset feature-icon"></i>
+                <h3>24/7 Support</h3>
+                <p>We're here to help</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. About Snippet -->
+    <section class="about-snippet">
+        <div class="container grid-2">
+            <div class="about-img reveal-left">
+                <img src="assets/images/about.webp" alt="About Stackly">
+            </div>
+            <div class="about-text reveal-right">
+                <h2>Caring for Your Baby, Naturally</h2>
+                <p>At Stackly, we believe that every baby deserves the gentlest touch. Our products are crafted from organic materials, ensuring maximum comfort and safety for your precious ones.</p>
+                <ul style="margin-bottom: 2rem;">
+                    <li><i class="bi bi-check-circle-fill text-primary" style="color: var(--primary); margin-right: 10px;"></i> 100% Organic Cotton</li>
+                    <li><i class="bi bi-check-circle-fill text-primary" style="color: var(--primary); margin-right: 10px;"></i> Dermatologically Tested</li>
+                    <li><i class="bi bi-check-circle-fill text-primary" style="color: var(--primary); margin-right: 10px;"></i> Eco-friendly Packaging</li>
+                </ul>
+                <a href="about.html" class="btn btn-secondary">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Featured Categories -->
+    <section class="categories text-center">
+        <div class="container reveal">
+            <h2 class="mb-5">Shop by Category</h2>
+            <div class="grid-4">
+                <div class="cat-card" onclick="window.location.href='404.html'">
+                    <i class="bi bi-emoji-smile"></i>
+                    <h4>Toys</h4>
+                </div>
+                <div class="cat-card" onclick="window.location.href='404.html'">
+                    <i class="bi bi-universal-access"></i>
+                    <h4>Clothing</h4>
+                </div>
+                <div class="cat-card" onclick="window.location.href='404.html'">
+                    <i class="bi bi-cup-straw"></i>
+                    <h4>Feeding</h4>
+                </div>
+                <div class="cat-card" onclick="window.location.href='404.html'">
+                    <i class="bi bi-droplet"></i>
+                    <h4>Bath</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Best Sellers -->
+    <section class="products text-center">
+        <div class="container reveal">
+            <h2 class="mb-5">Best Sellers</h2>
+            <div class="grid-4">
+                <div class="product-card">
+                    <img src="assets/images/product_onesie.webp" alt="Organic Onesie">
+                    <h4>Organic Cotton Onesie</h4>
+                    <div class="price">$24.99</div>
+                    <button class="btn btn-outline" style="width: 100%;">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/product_lotion.webp" alt="Baby Lotion">
+                    <h4>Gentle Baby Lotion</h4>
+                    <div class="price">$14.99</div>
+                    <button class="btn btn-outline" style="width: 100%;">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/product_blanket.webp" alt="Soft Blanket">
+                    <h4>Cloud Soft Blanket</h4>
+                    <div class="price">$34.99</div>
+                    <button class="btn btn-outline" style="width: 100%;">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="assets/images/product_teether.webp" alt="Teething Toy">
+                    <h4>Silicone Teething Ring</h4>
+                    <div class="price">$9.99</div>
+                    <button class="btn btn-outline" style="width: 100%;">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Testimonials -->
+    <section class="testimonials">
+        <div class="container reveal">
+            <h2>Happy Parents</h2>
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <i class="bi bi-quote fs-1" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>"Stackly has the best quality baby clothes. So soft and durable! My baby loves them."</p>
+                    <h5 class="mt-3">- Sarah M.</h5>
+                </div>
+                <div class="testimonial-card">
+                    <i class="bi bi-quote fs-1" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>"The customer service is amazing and shipping was super fast. Highly recommend."</p>
+                    <h5 class="mt-3">- Emily R.</h5>
+                </div>
+                <div class="testimonial-card">
+                    <i class="bi bi-quote fs-1" style="font-size: 2rem; color: var(--accent);"></i>
+                    <p>"I bought the gift set for a friend's baby shower. Beautiful packaging and lovely items."</p>
+                    <h5 class="mt-3">- Jessica T.</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Latest Blog -->
+    <section class="blog-snippet text-center">
+        <div class="container reveal">
+            <h2 class="mb-5">Latest Articles</h2>
+            <div class="grid-3">
+                <div class="blog-card">
+                    <img src="assets/images/blog_sleep.webp" alt="Blog 1">
+                    <div class="blog-content">
+                        <h4>Top 5 Sleep Tips for Newborns</h4>
+                        <p>Discover the secrets to a peaceful night for you and your baby...</p>
+                        <a href="404.html" class="btn btn-outline" style="margin-top: 1rem;">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/images/blog_formula.webp" alt="Blog 2">
+                    <div class="blog-content">
+                        <h4>Choosing the Right Baby Formula</h4>
+                        <p>A comprehensive guide to understanding baby nutrition...</p>
+                        <a href="404.html" class="btn btn-outline" style="margin-top: 1rem;">Read More</a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <img src="assets/images/blog_skincare.webp" alt="Blog 3">
+                    <div class="blog-content">
+                        <h4>Summer Skincare for Babies</h4>
+                        <p>Keep your baby's delicate skin protected during the hot months...</p>
+                        <a href="404.html" class="btn btn-outline" style="margin-top: 1rem;">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Milestone Guide (New Section) -->
+    <section class="py-5" style="background: var(--white);">
+        <div class="container reveal text-center">
+            <h2 class="mb-5">Developmental Milestone Guide</h2>
+            <p class="text-gray mb-5" style="max-width: 600px; margin: 0 auto 3rem;">Track your baby's growth and find recommended products for every age group.</p>
+            <div class="grid-3">
+                <div class="card" style="border-top: 5px solid var(--primary);">
+                    <h4>0 - 3 Months</h4>
+                    <p class="text-gray">Sensory exploration, high-contrast visuals, soft nesting blankets.</p>
+                    <a href="404.html" class="btn btn-outline mt-3" style="border-color: var(--primary); color: var(--primary);">Shop Newborn</a>
+                </div>
+                <div class="card" style="border-top: 5px solid var(--secondary);">
+                    <h4>4 - 6 Months</h4>
+                    <p class="text-gray">Grasping objects, tummy time, introducing first teething toys.</p>
+                    <a href="404.html" class="btn btn-outline mt-3" style="border-color: var(--secondary); color: var(--secondary);">Shop Infancy</a>
+                </div>
+                <div class="card" style="border-top: 5px solid var(--accent);">
+                    <h4>7 - 12 Months</h4>
+                    <p class="text-gray">Crawling, standing, interactive developmental toys, self-feeding.</p>
+                    <a href="404.html" class="btn btn-outline mt-3" style="border-color: var(--accent); color: var(--accent);">Shop Toddler</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Community / Instagram Feed (New Section) -->
+    <section class="py-5 bg-light" style="background: var(--light);">
+        <div class="container reveal text-center">
+            <h2 class="mb-5">Join Our #StacklyMoments Community</h2>
+            <p class="text-gray mb-5">Share your baby's moments with us on social media for a chance to be featured!</p>
+            <div class="grid-4" style="gap: 1rem;">
+                <div class="instagram-item" onclick="window.location.href='404.html'">
+                    <img src="assets/images/social_baby_giggle.webp" alt="Happy baby playing">
+                    <div class="instagram-overlay">
+                        <i class="bi bi-instagram"></i>
+                    </div>
+                </div>
+                <div class="instagram-item" onclick="window.location.href='404.html'">
+                    <img src="assets/images/social_baby_bath.webp" alt="Baby bubble bath splash">
+                    <div class="instagram-overlay">
+                        <i class="bi bi-instagram"></i>
+                    </div>
+                </div>
+                <div class="instagram-item" onclick="window.location.href='404.html'">
+                    <img src="assets/images/social_baby_swaddle.webp" alt="Sleeping newborn baby">
+                    <div class="instagram-overlay">
+                        <i class="bi bi-instagram"></i>
+                    </div>
+                </div>
+                <div class="instagram-item" onclick="window.location.href='404.html'">
+                    <img src="assets/images/social_baby_park.webp" alt="Baby with parents in park">
+                    <div class="instagram-overlay">
+                        <i class="bi bi-instagram"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Newsletter & Footer -->
+    <section class="newsletter">
+        <div class="container reveal-scale">
+            <h2>Join Our Stackly Family</h2>
+            <p>Subscribe for exclusive offers, parenting tips, and new product alerts.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 40px; margin-bottom: 1rem;">
+                    <p>Premium baby care store providing the gentlest products for your little ones.</p>
+                    <div class="social-links">
+                        <a href="404.html" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html" class="social-link"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Shipping Policy</a></li>
+                        <li><a href="404.html">Returns & Refunds</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><i class="bi bi-geo-alt me-2"></i> 123 Baby Street, NY</p>
+                    <p><i class="bi bi-envelope me-2"></i> hello@stackly.com</p>
+                    <p><i class="bi bi-telephone me-2"></i> +1 234 567 8900</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Baby Care Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

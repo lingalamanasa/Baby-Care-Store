@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Stackly Baby Care Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.webp" alt="Stackly Logo">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="login.html" class="btn btn-outline" style="padding: 0.5rem 1.5rem; margin-right: 0.5rem;">Login</a><a href="register.html" class="btn btn-primary" style="color: white; padding: 0.5rem 1.5rem;">Register</a>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="bi bi-list"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Page Header -->
+    <section class="page-header">
+        <div class="container animate-fade">
+            <h1>Contact Us</h1>
+            <p>We're here to help you and your baby.</p>
+        </div>
+    </section>
+
+    <!-- 2. Support Channels -->
+    <section class="py-5">
+        <div class="container text-center reveal">
+            <div class="grid-3">
+                <div class="card">
+                    <i class="bi bi-chat-dots fs-1 text-primary" style="font-size: 2.5rem; color: var(--primary);"></i>
+                    <h4 class="mt-3">Chat with Us</h4>
+                    <p class="text-gray">Our team is available 24/7 to assist you.</p>
+                    <a href="404.html" class="btn btn-outline mt-3">Start Chat</a>
+                </div>
+                <div class="card">
+                    <i class="bi bi-telephone fs-1 text-secondary" style="font-size: 2.5rem; color: var(--secondary);"></i>
+                    <h4 class="mt-3">Call Us</h4>
+                    <p class="text-gray">Mon-Fri from 9am to 6pm EST.</p>
+                    <p style="font-weight: bold; font-size: 1.2rem;" class="mt-3">+1 234 567 8900</p>
+                </div>
+                <div class="card">
+                    <i class="bi bi-envelope fs-1 text-accent" style="font-size: 2.5rem; color: var(--accent);"></i>
+                    <h4 class="mt-3">Email Us</h4>
+                    <p class="text-gray">We'll respond within 24 hours.</p>
+                    <a href="mailto:hello@stackly.com" style="font-weight: bold; display: inline-block; margin-top: 1rem; color: var(--dark);">hello@stackly.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Contact Form & 4. Store Info -->
+    <section class="py-5 bg-light" style="background: var(--light);">
+        <div class="container grid-2 reveal-scale" style="align-items: start;">
+            <!-- Contact Form -->
+            <div class="card">
+                <h3 class="mb-4">Send a Message</h3>
+                <form action="404.html">
+                    <div class="form-group mb-3">
+                        <label class="mb-2" style="display: block; font-weight: bold;">Full Name</label>
+                        <input type="text" class="form-control" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="mb-2" style="display: block; font-weight: bold;">Email Address</label>
+                        <input type="email" class="form-control" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label class="mb-2" style="display: block; font-weight: bold;">Message</label>
+                        <textarea class="form-control" rows="5" placeholder="How can we help?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+            
+            <!-- Store Info -->
+            <div>
+                <h3 class="mb-4">Our Store</h3>
+                <div class="card mb-4" style="padding: 0; overflow: hidden; height: 300px; background: var(--gray-light);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.428498877543!2d-73.98741368459384!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25859c25f466d%3A0xa1936c7a72d73d6b!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1689000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="card" style="background: var(--primary); color: white;">
+                    <h4 class="mb-3" style="color: white;">Store Hours</h4>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>Monday - Friday</span>
+                        <span>9:00 AM - 8:00 PM</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 0.5rem; margin-bottom: 0.5rem;">
+                        <span>Saturday</span>
+                        <span>10:00 AM - 6:00 PM</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>Sunday</span>
+                        <span>Closed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Quick Help FAQ (New Section) -->
+    <section class="py-5" style="background: var(--white);">
+        <div class="container reveal text-center">
+            <h3 class="mb-4">Need Quick Answers?</h3>
+            <p class="text-gray mb-5">Check out our most common questions before sending a message.</p>
+            <div class="grid-3">
+                <div class="card" style="text-align: left;">
+                    <h4>What is your return policy?</h4>
+                    <p class="text-gray mt-2" style="font-size: 0.95rem;">We offer a 30-day return policy for unused products. Premium members get 60 days.</p>
+                </div>
+                <div class="card" style="text-align: left;">
+                    <h4>Do you ship internationally?</h4>
+                    <p class="text-gray mt-2" style="font-size: 0.95rem;">Currently, we ship across the US and Canada. International shipping is coming soon.</p>
+                </div>
+                <div class="card" style="text-align: left;">
+                    <h4>How do I track my order?</h4>
+                    <p class="text-gray mt-2" style="font-size: 0.95rem;">Once shipped, you will receive a tracking link via email. You can also view details in your dashboard.</p>
+                </div>
+            </div>
+            <a href="services.html#faq" class="btn btn-outline mt-5">View Full FAQ</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 40px; margin-bottom: 1rem;">
+                    <p>Premium baby care store providing the gentlest products for your little ones.</p>
+                    <div class="social-links">
+                        <a href="404.html" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="404.html" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="404.html" class="social-link"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Shipping Policy</a></li>
+                        <li><a href="404.html">Returns & Refunds</a></li>
+                        <li><a href="404.html">FAQ</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p><i class="bi bi-geo-alt me-2"></i> 123 Baby Street, NY</p>
+                    <p><i class="bi bi-envelope me-2"></i> hello@stackly.com</p>
+                    <p><i class="bi bi-telephone me-2"></i> +1 234 567 8900</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly Baby Care Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
