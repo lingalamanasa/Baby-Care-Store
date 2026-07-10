@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (navLinks.classList.contains('active')) {
                 icon.classList.remove('bi-list');
                 icon.classList.add('bi-x');
+                document.body.classList.add('menu-open');
             } else {
                 icon.classList.remove('bi-x');
                 icon.classList.add('bi-list');
+                document.body.classList.remove('menu-open');
             }
         });
     }
@@ -36,7 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            const nameInput = document.getElementById('loginName') || document.getElementById('registerName');
+            const emailInput = document.getElementById('loginEmail') || document.getElementById('registerEmail');
             const role = document.getElementById('roleSelect').value;
+            
+            if (nameInput && nameInput.value.trim()) {
+                localStorage.setItem('stackly_user_name', nameInput.value.trim());
+            }
+            if (emailInput && emailInput.value.trim()) {
+                localStorage.setItem('stackly_user_email', emailInput.value.trim());
+            }
+            
             if (role === 'admin') {
                 window.location.href = 'admin-dashboard.html';
             } else {

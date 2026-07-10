@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Dashboard | Stackly Baby Care Store</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style_v3.css">
     <style>
         body { background: var(--light); display: flex; min-height: 100vh; }
         .sidebar {
@@ -20,6 +20,8 @@
             z-index: 10;
         }
         .sidebar-logo { padding: 0 2rem; margin-bottom: 2rem; text-align: center; }
+        .sidebar-logo a { display: inline-block; transition: var(--transition); }
+        .sidebar-logo a:hover { transform: scale(1.03); }
         .sidebar-menu { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
         .sidebar-menu a {
             padding: 1rem 2rem;
@@ -36,12 +38,25 @@
             border-right: 3px solid var(--secondary);
         }
         .main-content { flex: 1; margin-left: 250px; padding: 2rem; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; background: var(--white); padding: 1rem 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; background: var(--white); padding: 1.5rem 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
         
         .dashboard-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
-        .panel { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+        .panel { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); position: relative; overflow: hidden; }
+        
+        /* Premium Card Stats */
+        .stat-badges-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .stat-badge { background: var(--white); padding: 1.25rem 1rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; border: 1px solid rgba(0,0,0,0.02); }
+        .stat-badge h3 { margin: 0; font-size: 1.5rem; color: var(--secondary); }
+        .stat-badge p { margin: 0; font-size: 0.85rem; color: var(--gray); font-weight: 600; }
+        
+        /* Progress / Milestone Tracker */
+        .milestone-container { margin: 1.5rem 0; background: var(--light); border-radius: 30px; height: 12px; overflow: hidden; position: relative; }
+        .milestone-bar { background: linear-gradient(90deg, var(--primary), var(--secondary)); height: 100%; border-radius: 30px; width: 75%; transition: width 1s ease-in-out; }
         
         /* Mobile View Tweaks */
+        @media (max-width: 1200px) {
+            .stat-badges-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 991px) {
             .dashboard-grid { grid-template-columns: 1fr; }
         }
@@ -49,14 +64,25 @@
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: static; padding: 1rem; border-right: none; border-bottom: 1px solid var(--gray-light); }
             .main-content { margin-left: 0; padding: 1rem; }
-            .header { flex-direction: column; gap: 1rem; text-align: center; }
             .sidebar-menu { flex-direction: row; flex-wrap: wrap; justify-content: center; }
             .sidebar-menu a { padding: 0.5rem 1rem; border: none !important; border-radius: 20px; }
             .sidebar-menu a.active { background: var(--secondary); color: white; }
+            .header { flex-direction: column; gap: 1rem; text-align: center; }
+            .stat-badges-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            .stat-badges-grid { grid-template-columns: 1fr; }
         }
         
         .order-item { border-bottom: 1px solid var(--gray-light); padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; }
         .order-item:last-child { border-bottom: none; padding-bottom: 0; }
+        
+        /* Product Mini Card */
+        .reco-card { display: flex; gap: 1rem; align-items: center; background: var(--light); padding: 1rem; border-radius: var(--radius); margin-bottom: 1rem; }
+        .reco-card img { width: 60px; height: 60px; object-fit: cover; border-radius: 12px; }
+        .reco-card-info { flex: 1; }
+        .reco-card-info h5 { margin: 0; font-size: 0.95rem; }
+        .reco-card-info p { margin: 0; font-size: 0.85rem; color: var(--primary); font-weight: 700; }
     </style>
 </head>
 <body>
@@ -64,7 +90,9 @@
     <!-- Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-logo">
-            <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 40px;">
+            <a href="customer-dashboard.html">
+                <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 40px;">
+            </a>
         </div>
         <nav class="sidebar-menu">
             <a href="#" class="active"><i class="bi bi-person-fill"></i> My Profile</a>
@@ -82,7 +110,7 @@
     <main class="main-content">
         <header class="header">
             <div>
-                <h2 style="margin: 0;">Welcome, Sarah!</h2>
+                <h2 style="margin: 0;" id="welcome-greeting">Welcome, Sarah!</h2>
                 <p class="text-gray" style="margin: 0;">Premium Member</p>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem;">
@@ -90,9 +118,46 @@
             </div>
         </header>
 
+        <!-- Stats Grid -->
+        <div class="stat-badges-grid animate-fade">
+            <div class="stat-badge">
+                <h3>3</h3>
+                <p>Total Orders</p>
+            </div>
+            <div class="stat-badge">
+                <h3>$169.50</h3>
+                <p>Total Spent</p>
+            </div>
+            <div class="stat-badge">
+                <h3>8</h3>
+                <p>Wishlist Items</p>
+            </div>
+            <div class="stat-badge">
+                <h3>240</h3>
+                <p>Club Points</p>
+            </div>
+        </div>
+
         <div class="dashboard-grid animate-fade">
             <!-- Left Column -->
             <div style="display: flex; flex-direction: column; gap: 2rem;">
+                
+                <!-- Rewards Milestone Tracker (Rich Content) -->
+                <div class="panel" style="border-left: 5px solid var(--primary);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="margin: 0; font-size: 1.25rem;">Club Rewards Milestone</h3>
+                        <span style="background: rgba(255,182,193,0.2); color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.8rem; font-weight: bold;">Level 2</span>
+                    </div>
+                    <p class="text-gray mt-2" style="font-size: 0.9rem;">You are only 60 points away from unlocking a <strong>$15 gift coupon</strong>!</p>
+                    <div class="milestone-container">
+                        <div class="milestone-bar"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; color: var(--gray);">
+                        <span>240 Points (Current)</span>
+                        <span>300 Points (Unlock Coupon)</span>
+                    </div>
+                </div>
+
                 <div class="panel">
                     <h3 class="mb-4">Recent Orders</h3>
                     <div class="order-item">
@@ -123,11 +188,11 @@
                     <div class="grid-2" style="gap: 1rem;">
                         <div>
                             <p class="text-gray mb-1" style="font-size: 0.9rem;">Full Name</p>
-                            <p style="font-weight: bold;">Sarah Mitchell</p>
+                            <p style="font-weight: bold;" id="info-name">Sarah Mitchell</p>
                         </div>
                         <div>
                             <p class="text-gray mb-1" style="font-size: 0.9rem;">Email Address</p>
-                            <p style="font-weight: bold;">sarah.m@example.com</p>
+                            <p style="font-weight: bold;" id="info-email">sarah.m@example.com</p>
                         </div>
                         <div>
                             <p class="text-gray mb-1" style="font-size: 0.9rem;">Phone Number</p>
@@ -142,18 +207,41 @@
 
             <!-- Right Column -->
             <div style="display: flex; flex-direction: column; gap: 2rem;">
-                <div class="panel text-center">
-                    <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem;">
+                <div class="panel text-center" style="background: linear-gradient(180deg, var(--white), rgba(135,206,235,0.05));">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--secondary); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; box-shadow: 0 8px 20px rgba(135,206,235,0.3);">
                         <i class="bi bi-star-fill"></i>
                     </div>
                     <h4>Premium Status</h4>
                     <p class="text-gray mt-2" style="font-size: 0.9rem;">You are enjoying Free Express Shipping on all orders.</p>
                 </div>
                 
+                <!-- Recommended for you (Rich Content) -->
+                <div class="panel">
+                    <h4 class="mb-3">Recommended for You</h4>
+                    
+                    <div class="reco-card">
+                        <img src="assets/images/product_lotion.webp" alt="Lotion">
+                        <div class="reco-card-info">
+                            <h5>Organic Baby Lotion</h5>
+                            <p>$18.00</p>
+                        </div>
+                        <a href="404.html" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;"><i class="bi bi-cart-plus"></i></a>
+                    </div>
+                    
+                    <div class="reco-card">
+                        <img src="assets/images/product_teether.webp" alt="Teether">
+                        <div class="reco-card-info">
+                            <h5>Silicone Teething Ring</h5>
+                            <p>$12.50</p>
+                        </div>
+                        <a href="404.html" class="btn btn-primary" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;"><i class="bi bi-cart-plus"></i></a>
+                    </div>
+                </div>
+                
                 <div class="panel">
                     <h4 class="mb-3">Default Address</h4>
                     <p style="line-height: 1.8;">
-                        Sarah Mitchell<br>
+                        <span id="address-name" style="font-weight: bold;">Sarah Mitchell</span><br>
                         123 Sunny Avenue<br>
                         Apt 4B<br>
                         New York, NY 10001<br>
@@ -166,5 +254,37 @@
     </main>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        // Load user info from localStorage if available
+        document.addEventListener("DOMContentLoaded", () => {
+            const userName = localStorage.getItem("stackly_user_name") || "Sarah Mitchell";
+            const userEmail = localStorage.getItem("stackly_user_email") || "sarah.m@example.com";
+            
+            // Extract first name for the greeting
+            const firstName = userName.split(" ")[0];
+            
+            // Update greeting
+            const greetingElem = document.getElementById("welcome-greeting");
+            if (greetingElem) {
+                greetingElem.textContent = `Welcome, ${firstName}!`;
+            }
+            
+            // Update personal info section
+            const nameValElem = document.getElementById("info-name");
+            if (nameValElem) {
+                nameValElem.textContent = userName;
+            }
+            const emailValElem = document.getElementById("info-email");
+            if (emailValElem) {
+                emailValElem.textContent = userEmail;
+            }
+            
+            // Update default address name
+            const addressNameElem = document.getElementById("address-name");
+            if (addressNameElem) {
+                addressNameElem.textContent = userName;
+            }
+        });
+    </script>
 </body>
 </html>

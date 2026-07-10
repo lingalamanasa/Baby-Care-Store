@@ -425,8 +425,6 @@ section {
   margin-bottom: 1rem;
 }
 
-
-
 /* Instagram Section Styling */
 .instagram-item {
   position: relative;
@@ -557,4 +555,3 @@ body.menu-open {
   .container { padding: 0 1rem; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
-
