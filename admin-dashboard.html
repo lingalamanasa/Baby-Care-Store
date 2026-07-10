@@ -27,7 +27,7 @@
         .sidebar-menu { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
         .sidebar-menu a {
             padding: 1rem 2rem;
-            color: var(--gray);
+            color: var(--text-muted);
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -49,7 +49,7 @@
         .recent-orders { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--gray-light); }
-        th { color: var(--gray); font-weight: 600; }
+        th { color: var(--text-muted); font-weight: 600; }
         
         /* Sales Chart Visual representation (CSS Only) */
         .chart-panel { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
@@ -57,9 +57,9 @@
         .chart-bar-wrapper { display: flex; flex-direction: column; align-items: center; flex: 1; }
         .chart-bar { width: 28px; background: linear-gradient(180deg, var(--secondary), #A1C4FD); border-radius: 6px 6px 0 0; transition: height 1s ease-in-out; position: relative; }
         .chart-bar:hover { background: linear-gradient(180deg, var(--primary), #FFD700); }
-        .chart-bar::before { content: attr(data-value); position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: bold; color: var(--dark); opacity: 0; transition: opacity 0.2s; white-space: nowrap; }
+        .chart-bar::before { content: attr(data-value); position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; font-weight: bold; color: var(--text-main); opacity: 0; transition: opacity 0.2s; white-space: nowrap; }
         .chart-bar:hover::before { opacity: 1; }
-        .chart-label { margin-top: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--gray); }
+        .chart-label { margin-top: 0.5rem; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); }
         
         /* Low Stock Alerts (Rich Content) */
         .alert-card { background: var(--white); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
@@ -174,6 +174,117 @@
             .mobile-header img { max-width: 140px; height: auto; }
         }
 
+    
+        /* Dark Theme Variables & Base */
+        :root {
+            --bg-dark: #0A0F1C;
+            --card-dark: #131B2F;
+            --border-dark: #1E293B;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent-cyan: #00F2FE;
+            --accent-blue: #4FACFE;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background: var(--bg-dark);
+            border-right: 1px solid var(--border-dark);
+        }
+        .sidebar-menu a {
+            color: var(--text-muted);
+        }
+        .sidebar-menu a:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+        }
+        .sidebar-menu a.active {
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--accent-cyan) !important;
+            border-left: 4px solid var(--accent-cyan) !important;
+        }
+        .sidebar-menu a.active i {
+            color: var(--accent-cyan) !important;
+        }
+
+        /* Main Content */
+        .header h2 {
+            color: var(--text-main);
+        }
+        .header p {
+            color: var(--text-muted);
+        }
+
+        /* Cards */
+        .stat-card, .reco-card, .white-card {
+            background: var(--card-dark) !important;
+            border: 1px solid var(--border-dark) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+        }
+        .stat-card:hover, .reco-card:hover, .white-card:hover {
+            border-color: rgba(0, 242, 254, 0.3) !important;
+            box-shadow: 0 8px 32px rgba(0, 242, 254, 0.1) !important;
+            transform: translateY(-2px);
+        }
+        .stat-card h3, .stat-card h5 {
+            color: var(--text-main) !important;
+        }
+        .stat-card p {
+            color: var(--text-muted);
+        }
+        .stat-card .stat-icon {
+            background: rgba(255, 255, 255, 0.05) !important;
+            color: var(--text-main) !important;
+        }
+
+        /* Mobile Header */
+        @media (max-width: 991px) {
+            .mobile-header {
+                background: var(--bg-dark) !important;
+                border-bottom: 1px solid var(--border-dark) !important;
+                padding: 1rem 1.5rem !important;
+            }
+            .mobile-menu-btn {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-dark);
+                border-radius: 8px;
+                padding: 0.4rem 0.6rem;
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                color: var(--text-main) !important;
+            }
+            
+            /* Floating Action Button (FAB) for mobile menu */
+            .fab-menu {
+                display: flex !important;
+                position: fixed;
+                bottom: 30px;
+                left: 30px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+                color: #fff;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
+                z-index: 1001;
+                cursor: pointer;
+                transition: transform 0.2s ease;
+            }
+            .fab-menu:active {
+                transform: scale(0.95);
+            }
+        }
+        .fab-menu { display: none; }
+
     </style>
 </head>
 <body>
@@ -181,10 +292,13 @@
     <!-- Mobile Header -->
     
     <div class="mobile-header" style="display: none;">
-        <a href="admin-dashboard.html" style="display: block;">
-            <img src="assets/images/logo.webp" alt="Stackly Logo">
+        <a href="admin-dashboard.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+            <div style="background: var(--dark); border-radius: 8px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #2C3E50, #1a252f);">
+                <i class="bi bi-layers-half" style="color: #00f2fe; font-size: 1.2rem;"></i>
+            </div>
+            <span style="font-weight: 800; font-size: 1.2rem; color: var(--text-main); letter-spacing: 1px;">STACKLY</span>
         </a>
-        <div class="mobile-menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('active')" style="font-size: 1.5rem; cursor: pointer; color: var(--dark);">
+        <div class="mobile-menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('active')" style="font-size: 1.5rem; cursor: pointer; color: var(--text-main);">
             <i class="bi bi-list"></i>
         </div>
     </div>
@@ -237,7 +351,7 @@
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(255,182,193,0.2); color: var(--primary);">
+                <div class="stat-icon" style="background: rgba(255,182,193,0.2); color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);">
                     <i class="bi bi-cart-check"></i>
                 </div>
                 <div>
@@ -255,7 +369,7 @@
                 </div>
             </div>
             <div class="stat-card">
-                <div class="stat-icon" style="background: rgba(108,117,125,0.2); color: var(--gray);">
+                <div class="stat-icon" style="background: rgba(108,117,125,0.2); color: var(--text-muted);">
                     <i class="bi bi-box"></i>
                 </div>
                 <div>
@@ -400,5 +514,11 @@
             }
         });
     </script>
+
+    <!-- Floating Action Button for Mobile -->
+    <div class="fab-menu" onclick="document.querySelector('.sidebar').classList.toggle('active')">
+        <i class="bi bi-list"></i>
+    </div>
+
 </body>
 </html>
