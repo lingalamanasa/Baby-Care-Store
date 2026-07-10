@@ -88,6 +88,7 @@
             .dashboard-layout { grid-template-columns: minmax(0, 1fr); }
         }
         @media (max-width: 991px) {
+            .mobile-header { display: flex !important; justify-content: space-between; align-items: center; }
             body { display: flex; flex-direction: column; }
             .mobile-header { display: flex !important; }
             .mobile-menu-btn { display: block !important; }
@@ -101,14 +102,86 @@
             .sidebar-menu a { padding: 1rem 2rem; border-radius: 0; }
             .sidebar-menu a.active { background: rgba(255,182,193,0.1); color: var(--primary); border-right: 3px solid var(--primary) !important; }
         }
+    
+        .sidebar {
+            background: #ffffff;
+            border-right: 1px solid #e2e8f0;
+            width: 260px;
+        }
+        .sidebar-logo {
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .sidebar-logo img {
+            width: 100%;
+            max-width: 180px;
+            height: auto;
+            object-fit: contain;
+            margin: 0 auto;
+        }
+        .sidebar-menu a {
+            margin: 0.25rem 1rem;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            color: #64748b;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .sidebar-menu a:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+        .sidebar-menu a.active {
+            background: #eff6ff;
+            color: #3b82f6 !important;
+            border-left: 4px solid #3b82f6 !important;
+            border-right: none !important;
+            border-radius: 0 8px 8px 0;
+        }
+        .sidebar-menu a.active i {
+            color: #3b82f6 !important;
+        }
+        body {
+            background-color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 2.5rem;
+        }
+        .stat-card, .reco-card, .white-card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover, .reco-card:hover, .white-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            transform: translateY(-2px);
+        }
+        .header h2 {
+            color: #0f172a;
+            font-weight: 700;
+        }
+        @media (max-width: 991px) {
+            .mobile-header { display: flex !important; justify-content: space-between; align-items: center; }
+            .sidebar { left: -260px; width: 260px; }
+            .sidebar.active { left: 0; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .mobile-header { background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 1rem; }
+            .mobile-header img { max-width: 140px; height: auto; }
+        }
+
     </style>
 </head>
 <body>
 
     <!-- Mobile Header -->
-    <div class="mobile-header">
-        <a href="admin-dashboard.html" style="display: flex; align-items: center;">
-            <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 35px; width: 35px; object-fit: contain;">
+    
+    <div class="mobile-header" style="display: none;">
+        <a href="admin-dashboard.html" style="display: block;">
+            <img src="assets/images/logo.webp" alt="Stackly Logo">
         </a>
         <div class="mobile-menu-btn" onclick="document.querySelector('.sidebar').classList.toggle('active')" style="font-size: 1.5rem; cursor: pointer; color: var(--dark);">
             <i class="bi bi-list"></i>
@@ -117,11 +190,13 @@
 
     <!-- Sidebar -->
     <aside class="sidebar">
+        
         <div class="sidebar-logo">
-            <a href="admin-dashboard.html" style="display: flex; justify-content: center; align-items: center;">
-                <img src="assets/images/logo.webp" alt="Stackly Logo" style="height: 60px; width: 60px; object-fit: contain;">
+            <a href="admin-dashboard.html" style="display: block;">
+                <img src="assets/images/logo.webp" alt="Stackly Logo">
             </a>
         </div>
+
         <nav class="sidebar-menu">
             <a href="#" class="active"><i class="bi bi-grid-1x2-fill"></i> Dashboard</a>
             <a href="404.html"><i class="bi bi-box-seam"></i> Products</a>
