@@ -161,7 +161,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
             transform: translateY(-2px);
         }
-        .header { background: transparent !important; box-shadow: none !important; }
+        .header { position: relative !important; width: auto !important; background: transparent !important; box-shadow: none !important; }
         .header h2 {
             color: #0f172a;
             font-weight: 700;
@@ -215,7 +215,7 @@
         }
 
         /* Main Content */
-        .header { background: transparent !important; box-shadow: none !important; }
+        .header { position: relative !important; width: auto !important; background: transparent !important; box-shadow: none !important; }
         .header h2 {
             color: var(--text-main);
         }
@@ -339,7 +339,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <header class="header">
+        <div class="header">
             <div>
                 <h2 style="margin: 0;">Admin Overview</h2>
                 <p class="text-gray" style="margin: 0;" id="welcome-admin">Welcome back, Admin</p>
@@ -347,7 +347,7 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div id="avatar-initial" style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.25rem;">A</div>
             </div>
-        </header>
+        </div>
 
         <!-- Stats Grid -->
         <div class="stats-grid animate-fade">

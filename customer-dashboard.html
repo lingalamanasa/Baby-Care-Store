@@ -162,7 +162,7 @@
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
             transform: translateY(-2px);
         }
-        .header { background: transparent !important; box-shadow: none !important; }
+        .header { position: relative !important; width: auto !important; background: transparent !important; box-shadow: none !important; }
         .header h2 {
             color: #0f172a;
             font-weight: 700;
@@ -216,7 +216,7 @@
         }
 
         /* Main Content */
-        .header { background: transparent !important; box-shadow: none !important; }
+        .header { position: relative !important; width: auto !important; background: transparent !important; box-shadow: none !important; }
         .header h2 {
             color: var(--text-main);
         }
@@ -339,7 +339,7 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <header class="header">
+        <div class="header">
             <div>
                 <h2 style="margin: 0;" id="welcome-greeting">Welcome, Sarah!</h2>
                 <p class="text-gray" style="margin: 0;">Premium Member</p>
@@ -347,7 +347,7 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <a href="404.html" class="btn btn-primary" style="padding: 0.5rem 1.5rem;">Continue Shopping</a>
             </div>
-        </header>
+        </div>
 
         <!-- Stats Grid -->
         <div class="stat-badges-grid animate-fade">
