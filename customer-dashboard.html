@@ -47,7 +47,7 @@
         
         /* Premium Card Stats */
         .stat-badges-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 2rem; }
-        .stat-badge { background: var(--white); padding: 1.25rem 1rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; border: 1px solid rgba(0,0,0,0.02); }
+        .stat-badge { background: var(--card-dark); border-color: var(--border-dark); padding: 1.25rem 1rem; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; border: 1px solid rgba(0,0,0,0.02); }
         .stat-badge h3 { margin: 0; font-size: 1.5rem; color: var(--secondary); }
         .stat-badge p { margin: 0; font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
         
@@ -151,17 +151,18 @@
             margin-left: 260px;
             padding: 2.5rem;
         }
-        .stat-card, .reco-card, .white-card {
+        .stat-card, .reco-card, .white-card, .stat-badge {
             background: #ffffff;
             border-radius: 16px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             border: 1px solid #e2e8f0;
             transition: all 0.3s ease;
         }
-        .stat-card:hover, .reco-card:hover, .white-card:hover {
+        .stat-card:hover, .reco-card:hover, .white-card:hover, .stat-badge:hover {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
             transform: translateY(-2px);
         }
+        .header { background: transparent !important; box-shadow: none !important; }
         .header h2 {
             color: #0f172a;
             font-weight: 700;
@@ -195,6 +196,7 @@
         /* Sidebar Styles */
         .sidebar {
             background: var(--bg-dark);
+            z-index: 1050 !important;
             border-right: 1px solid var(--border-dark);
         }
         .sidebar-menu a {
@@ -214,6 +216,7 @@
         }
 
         /* Main Content */
+        .header { background: transparent !important; box-shadow: none !important; }
         .header h2 {
             color: var(--text-main);
         }
@@ -222,12 +225,12 @@
         }
 
         /* Cards */
-        .stat-card, .reco-card, .white-card {
+        .stat-card, .reco-card, .white-card, .stat-badge {
             background: var(--card-dark) !important;
             border: 1px solid var(--border-dark) !important;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
         }
-        .stat-card:hover, .reco-card:hover, .white-card:hover {
+        .stat-card:hover, .reco-card:hover, .white-card:hover, .stat-badge:hover {
             border-color: rgba(0, 242, 254, 0.3) !important;
             box-shadow: 0 8px 32px rgba(0, 242, 254, 0.1) !important;
             transform: translateY(-2px);
@@ -308,8 +311,15 @@
     <aside class="sidebar">
         
         <div class="sidebar-logo">
-            <a href="customer-dashboard.html" style="display: block;">
-                <img src="assets/images/logo.webp" alt="Stackly Logo">
+            <a href="customer-dashboard.html" style="text-decoration: none; display: block;">
+                
+            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <div style="background: var(--dark); border-radius: 8px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #2C3E50, #1a252f);">
+                    <i class="bi bi-layers-half" style="color: #00f2fe; font-size: 1.4rem;"></i>
+                </div>
+                <span style="font-weight: 800; font-size: 1.4rem; color: var(--text-main); letter-spacing: 1px;">STACKLY</span>
+            </div>
+
             </a>
         </div>
 
